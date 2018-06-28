@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <form method="post" action="add">
+        <input type="text" name="text" placeholder="Введите сообщение"/>
+        <input type="text" name="filter" placeholder="Тэг"/>
+        <button type="submit">Добавить</button>
+    </form>
+
+</div>
+<div>
+    <form method="post" action="filter">
+        <input type="text" name="tag" placeholder="Тэг"/>
+        <button type="submit">Найти</button>
+    </form>
+</div>
+<div>
+    Список сообщений:
+</div>
+{{#messages}}
+    <div>{{id}}</div>
+    <div>{{text}}</div>
+    <div>{{tag}}</div>
+    <hr/>
+{{/messages}}
+</body>
+</html>
