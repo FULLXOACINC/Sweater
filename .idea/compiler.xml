@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="SpringBootTut" />
         <module name="SptingBootTut" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="SpringBootTut" target="1.8" />
       <module name="SptingBootTut" target="1.8" />
     </bytecodeTargetLevel>
   </component>
