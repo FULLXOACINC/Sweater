@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Message {
@@ -14,13 +16,17 @@ public class Message {
 
     private String text;
     private String tag;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User author;
 
-    public Message() {
-    }
-
-    public Message(String text, String tag) {
+    public Message(String text, String tag, User author) {
         this.text = text;
         this.tag = tag;
+        this.author = author;
+    }
+
+    public Message() {
     }
 
     public Integer getId() {
@@ -45,5 +51,13 @@ public class Message {
 
     public void setTag(String tag) {
         this.tag = tag;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
     }
 }

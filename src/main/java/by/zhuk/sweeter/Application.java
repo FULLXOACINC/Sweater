@@ -1,4 +1,3 @@
-
 package by.zhuk.sweeter;
 
 import org.springframework.boot.SpringApplication;
