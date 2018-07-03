@@ -19,6 +19,7 @@ public class Message {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User author;
+    private String filename;
 
     public Message(String text, String tag, User author) {
         this.text = text;
@@ -59,5 +60,24 @@ public class Message {
 
     public void setAuthor(User author) {
         this.author = author;
+    }
+
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
+    public String getFilename() {
+        return filename;
+    }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "id=" + id +
+                ", text='" + text + '\'' +
+                ", tag='" + tag + '\'' +
+                ", author=" + author +
+                ", filename='" + filename + '\'' +
+                '}';
     }
 }
