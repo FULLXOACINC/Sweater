@@ -1,8 +1,6 @@
-<#import "parts/common.ftl" as common>
-<#import "parts/login.ftl" as login>
+<#import "parts/common.ftl" as c>
+<#import "parts/login.ftl" as l>
 
-<@common.page>
-Login page
-    <@login.login "/login" />
-<a href="/registration">Add new user</a>
-</@common.page>
+<@c.page>
+    <@l.login "/login" false/>
+</@c.page>

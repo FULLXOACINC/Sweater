@@ -1,8 +1,8 @@
-<#import "parts/common.ftl" as common>
-<#import "parts/login.ftl" as login>
+<#import "parts/common.ftl" as c>
+<#import "parts/login.ftl" as l>
 
-<@common.page>
-Add new user
-    ${message?ifExists}
-    <@login.login "/registration" />
-</@common.page>
+<@c.page>
+<div class="mb-1">Add new user</div>
+    ${message!}
+    <@l.login "/registration" true />
+</@c.page>
