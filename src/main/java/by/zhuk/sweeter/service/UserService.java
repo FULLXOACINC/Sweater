@@ -20,14 +20,18 @@ import java.util.stream.Collectors;
 
 @Service
 public class UserService implements UserDetailsService {
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    private final MailSender mailSender;
+
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    private MailSender mailSender;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder,MailSender mailSender) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+        this.mailSender=mailSender;
+    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -42,7 +46,6 @@ public class UserService implements UserDetailsService {
 
     public boolean addUser(User user) {
         User userFromDb = userRepository.findByUsername(user.getUsername());
-
         if (userFromDb != null) {
             return false;
         }
